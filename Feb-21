@@ -1,0 +1,30 @@
+2119. A Number After a Double Reversal - Easy
+
+Code:
+
+class Solution {
+    public boolean isSameAfterReversals(int num) {
+        
+        int reversed1 = reverseNumber(num);
+        int reversed2= reverseNumber(reversed1);
+
+        return num == reversed2;
+       
+    }
+
+    public int reverseNumber(int num){
+        int result = 0;
+
+         while(num != 0){
+
+            int k = num%10;
+
+            result = result*10 + k;
+
+            num = num/10;
+
+        }
+
+        return result;
+    }
+}
