@@ -28,3 +28,28 @@ class Solution {
         return result;
     }
 }
+
+
+
+
+
+
+191. Number of 1 Bits
+
+
+
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        
+       int result=0;
+String binary = Integer.toBinaryString(n);   //INTEGER TO BINARY
+      
+        for(char i:binary.toCharArray()){
+            if(i =='1')
+            result++;
+        }
+
+        return result;
+    }
+}
