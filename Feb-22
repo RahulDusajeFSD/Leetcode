@@ -1,0 +1,41 @@
+
+
+
+338. Counting Bits
+
+class Solution {
+    public int[] countBits(int n) {
+        
+        int[] result = new int[n+1];
+        int k=0; 
+
+        for(int i=0;i<=n;i++){
+
+              int numberOfOne = 0;
+
+            String integerToBinary = Integer.toBinaryString(i);
+
+              System.out.println(integerToBinary);
+
+            for(char j:integerToBinary.toCharArray()){
+              
+                if(j =='1'){
+                    numberOfOne++;
+
+                     System.out.println("iteration i ");
+                    System.out.println("iteration i " + numberOfOne);
+                }
+
+
+
+                
+            }
+
+            result[k] = numberOfOne;
+
+            k++;
+        }
+
+        return result;
+    }
+}
