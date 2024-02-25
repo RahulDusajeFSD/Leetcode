@@ -1,0 +1,48 @@
+2357. Make Array Zero by Subtracting Equal Amounts
+
+
+class Solution {
+    public int minimumOperations(int[] nums) {
+        
+        int count = 0;
+        while(!checkIfAllzeros(nums)){
+            int minimum = findMinimum(nums);
+            subtractMinimumFromArray(nums, minimum);
+            count++;
+        }
+         return count;
+        }
+
+
+
+    public int findMinimum(int[] arr){
+        int minimum = Integer.MAX_VALUE;
+
+        for(int i:arr){
+            if(i<minimum && i!=0)
+            minimum=i;
+        }
+
+    return minimum;
+    }
+
+    public void subtractMinimumFromArray(int[] arr, int minimum){
+
+        for(int i=0;i<arr.length;i++){
+            arr[i]=arr[i]-minimum;
+            if(arr[i] < 0){
+                arr[i]=0;
+            }
+        }
+    }
+
+    public boolean checkIfAllzeros(int[] nums){
+
+        for(int i:nums){
+            if(i !=0)
+            return false;
+        }
+
+        return true;
+    }
+}
