@@ -6,7 +6,6 @@ left join EmployeeUNI euni on e.id = euni.id
 
 
 2404. Most Frequent Even Element
-
 class Solution {
     public int mostFrequentEven(int[] nums) {
         
@@ -62,23 +61,3 @@ return nums[0];
     }
 }
 
-
-class Solution {
-    public int mostFrequentEven(int[] nums) {
-        Map<Integer, Integer> count = new HashMap<>();
-        for (int x : nums) {
-            if (x % 2 == 0) {
-                count.merge(x, 1, Integer::sum);
-            }
-        }
-        int ans = -1, max = 0;
-        for (var e : count.entrySet()) {
-            int x = e.getKey(), v = e.getValue();
-            if (max < v || (max == v && ans > x)) {
-                ans = x;
-                max = v;
-            }
-        }
-        return ans;
-    }
-}
