@@ -1,0 +1,84 @@
+1378. Replace Employee ID With The Unique Identifier
+
+select euni.unique_id, e.name from Employees e 
+left join EmployeeUNI euni on e.id = euni.id
+
+
+
+2404. Most Frequent Even Element
+
+class Solution {
+    public int mostFrequentEven(int[] nums) {
+        
+        Map<Integer, Integer> map = new TreeMap<>();
+        
+if(nums.length == 1 && nums[0]%2 ==0)
+return nums[0];
+
+        int countZeros = 0;
+        for(int i:nums){
+            if(i==0){
+                countZeros++;
+            }
+        }
+
+        if(countZeros == nums.length)
+        return 0;
+
+
+        for(int i: nums){
+            if(i%2==0){
+               if(!map.containsKey(i)){
+                   map.put(i,1);
+                  
+               }
+
+               else
+                map.put(i, (map.get(i) + 1) );
+            }
+        }
+
+       // System.out.println(map);
+        int max = Integer.MIN_VALUE;
+        int element = 0;
+        if(map.size() == 0)
+        return -1;
+
+        
+
+       for(Map.Entry<Integer, Integer> entry:map.entrySet()){
+
+           if(max < entry.getValue()){
+
+           max = entry.getValue();
+            element = entry.getKey();
+           }
+       }
+
+       System.out.println(map);
+        return element;
+
+
+    }
+}
+
+
+class Solution {
+    public int mostFrequentEven(int[] nums) {
+        Map<Integer, Integer> count = new HashMap<>();
+        for (int x : nums) {
+            if (x % 2 == 0) {
+                count.merge(x, 1, Integer::sum);
+            }
+        }
+        int ans = -1, max = 0;
+        for (var e : count.entrySet()) {
+            int x = e.getKey(), v = e.getValue();
+            if (max < v || (max == v && ans > x)) {
+                ans = x;
+                max = v;
+            }
+        }
+        return ans;
+    }
+}
