@@ -1,3 +1,36 @@
+206. Reverse Linked List 
+
+The below approach uses Stack.
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        
+       ListNode temp = new ListNode(0);
+
+       ListNode res = temp;
+
+
+        Stack<ListNode> s = new Stack<>();
+       while(head != null){
+           s.push(head);
+           head=head.next;
+       }
+
+       while(s.size()!=0){
+           res.next = s.pop();
+        
+          res=res.next;
+       }    
+
+       res.next= null;
+
+       return temp.next;
+    }
+}
+
+
+
+
 876. Middle of the Linked List
 
 class Solution {
