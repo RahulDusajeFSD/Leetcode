@@ -47,3 +47,12 @@ class MyHashMap {
         arr[key] = -1;
     }
 }
+
+
+620. Not Boring Movies
+
+select id, movie, description, rating from Cinema where
+case when id % 2 = 1 then id.  -- to check if num is odd using case - when - then -end
+and description <> 'boring'. -- <> means not equals
+end. -- to close case statement
+order by rating desc
