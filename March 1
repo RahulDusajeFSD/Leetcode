@@ -1,0 +1,16 @@
+237. Delete Node in a Linked List
+
+
+class Solution {
+    public void deleteNode(ListNode node) {
+        
+
+    node.val = node.next.val; // first assign the value of next node to currentb node
+
+    //Eg - 4 5 1 9 would become 4 1(a) 1(b) 9 since 5 to be remoevd.
+
+    // Now set node.next = node.next.next - removing the value (b) -> 4 1(a) 9.
+
+    node.next = node.next.next;
+    }
+}
