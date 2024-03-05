@@ -1,0 +1,36 @@
+1299. Replace Elements with Greatest Element on Right Side
+
+
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int[] result = new int[arr.length];
+
+       
+          //  int maximumElement = getHighestElementFromRight(arr,1,2);
+        for(int i=0;i<arr.length-1;i++){
+            int maximumElement = getHighestElementFromRight(arr,i+1,arr.length-1);
+          System.out.println(maximumElement);
+          result[i]=maximumElement;
+        
+        }
+
+        result[arr.length-1]=-1;
+        
+      
+
+        return result;
+    }
+
+
+    public int getHighestElementFromRight(int[] arr, int start, int end){
+
+        int maximum = arr[start];
+
+        for(int i=start;i<=end;i++){
+            if(arr[i]>maximum)
+            maximum=arr[i];
+        }
+
+        return maximum;
+    }
+}
