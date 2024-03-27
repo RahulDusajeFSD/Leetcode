@@ -1,0 +1,23 @@
+268. Missing Number
+
+class Solution {
+    public int missingNumber(int[] nums) {
+        
+        int[] subsidaryArray = new int[nums.length+1];
+
+        Arrays.fill(subsidaryArray, -1);
+
+        for(int i=0;i<nums.length;i++){
+
+            subsidaryArray[nums[i]] = nums[i];
+        }
+
+        for(int i=0;i<subsidaryArray.length;i++){
+            if(subsidaryArray[i]==-1)
+            return i;
+        }
+
+        return 0;
+
+    }
+}
