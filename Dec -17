@@ -1,0 +1,31 @@
+
+404. Sum of Left Leaves
+
+class Solution {
+    int totalSum = 0;
+    int leftSubtree = 0;
+    int rightSubtree = 0;
+   
+    public int sumOfLeftLeaves(TreeNode root) {
+
+        if(root == null)
+        return totalSum;
+
+if(root.left != null && root.left.left == null && root.left.right == null)
+totalSum+=root.left.val;
+
+        leftSubtree =  sumOfLeftLeaves(root.left);
+        rightSubtree = sumOfLeftLeaves(root.right);
+
+        return totalSum;
+
+
+    
+
+
+        
+
+
+        
+    }
+}
