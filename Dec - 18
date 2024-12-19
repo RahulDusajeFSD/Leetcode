@@ -1,0 +1,24 @@
+434. Number of Segments in a String
+
+class Solution {
+    public int countSegments(String s) {
+        
+         s =s.trim();
+    
+        if(s.length() == 0)
+        return 0;
+
+    System.out.println(s);
+
+        int count =0;
+   
+        String[] words = s.split(" ");
+
+        for(String word:words){
+            if(!word.equals(""))
+            count++;
+        }
+        return count;
+        
+    }
+}
