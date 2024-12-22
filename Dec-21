@@ -1,0 +1,9 @@
+1407. Top Travellers
+
+select name, ifnull(sum(distance),0) as travelled_distance from (select u.name, u.id, r.distance from users u left outer join rides r on u.id = r.user_id) as T group by name, id order by 
+travelled_distance desc, name 
+
+
+
+-- ifnull(A,0) Means if a value in column A is null - it will make it 0. Cool!
+
