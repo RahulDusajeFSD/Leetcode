@@ -1,0 +1,60 @@
+2461. Maximum Sum of Distinct Subarrays With Length K
+
+
+class Solution {
+    public long maximumSubarraySum(int[] nums, int k) {
+        
+        // sum of first k array elements.
+        long maxSum = 0;
+        long windowSum =0;
+        boolean hasDuplicate = false;
+        Set<Integer> set = new HashSet<>();
+
+        for(int i=0;i<k;i++){
+           if(set.contains(nums[i]))
+           {
+                   windowSum = 0;
+                   set.clear();
+                   break;
+           }
+        
+
+           set.add(nums[i]);
+           windowSum+=nums[i];
+
+         
+        }
+              maxSum = windowSum;
+
+
+
+
+        // slide the window.
+        for(int i=k;i<nums.length;i++){
+          
+           int outgoingElement = nums[i-k];
+           set.remove(outgoingElement);
+           windowSum = windowSum - outgoingElement;
+
+           int incomingElement = nums[i];
+           if(set.contains(incomingElement))
+           {
+
+           
+           windowSum=0;
+           set.clear();
+           }
+           else{
+            set.add(incomingElement);
+            windowSum+=incomingElement;
+            maxSum = Math.max(windowSum,maxSum);
+           }
+
+
+        }
+
+    
+ return maxSum;
+    }
+    
+}
