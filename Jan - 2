@@ -1,0 +1,33 @@
+917. Reverse Only Letters
+
+
+class Solution {
+    public String reverseOnlyLetters(String s) {
+        int leftPointer = 0;
+        int rightPointer = s.length()-1;
+
+        StringBuilder sb = new StringBuilder(s); // doesn't internally create new Strings for every change
+// use string builder. SringBuilder sb = new StringBuilder(String);
+
+        while(leftPointer<rightPointer){
+
+
+            while(leftPointer < rightPointer && !Character.isLetter(sb.charAt(leftPointer)))
+            leftPointer ++; // increment left pointer until it finds some alphabet
+
+             while(leftPointer < rightPointer && !Character.isLetter(sb.charAt(rightPointer)))
+            rightPointer --;  // decrement right pointer until it finds some alphabet
+
+
+            char temp = sb.charAt(leftPointer);
+            sb.setCharAt(leftPointer, sb.charAt(rightPointer)); // s.setCharAt(index, char)
+            sb.setCharAt(rightPointer, temp);
+            leftPointer ++;
+            rightPointer --;
+            }
+            
+  return sb.toString();
+        }
+
+      
+  }
