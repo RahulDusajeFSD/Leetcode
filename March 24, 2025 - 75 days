@@ -1,0 +1,29 @@
+151. Reverse Words in a String
+
+
+class Solution {
+    public String reverseWords(String s) {
+        
+        String trimmedString = s.trim();
+
+        String answer= "";
+
+        Stack<String> stack = new Stack<>();
+
+        String words[] = trimmedString.split("\\s+"); // to treat multiple spaces as one
+
+        for(String st:words){
+            stack.push(st);
+        }
+
+       while(stack.size()>0){
+        answer+=stack.pop() + " ";
+       }
+
+
+        return answer.trim();
+
+
+
+    }
+}
